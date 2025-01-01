@@ -1,0 +1,338 @@
+:root {
+	--white: #ff00c3;
+	--bright: #ffdef8;
+	--dark: #b708ca;
+	--very-light-pink: #fccefc; /* Extremely subtle pink */
+}
+body {
+	background-color: var(--very-light-pink);
+}
+
+
+/* #profile1, #profile2 {
+	width: 50%;
+} */
+/* Original styling for desktop */
+/* Original styling for desktop */
+#profile1, #profile2 {
+	width: 50%; /* Width remains 50% of the parent container */
+	height: 400px; /* Set the same height for both images on desktop */
+	object-fit: cover; /* Ensures images are cropped to fit the dimensions */
+}
+
+/* Mobile and Tablet adjustments */
+@media screen and (max-width: 768px) {
+	#profile1, #profile2 {
+		width: 80%; /* Adjust width for tablets */
+		height: 300px; /* Set a fixed height for both images */
+		margin: 0 auto; /* Center the images */
+		display: block; /* Block display for better alignment */
+		object-fit: cover; /* Ensures both images crop the same */
+	}
+}
+
+@media screen and (max-width: 480px) {
+	#profile1, #profile2 {
+		width: 100%; /* Full width for mobile devices */
+		height: 300px; /* Ensure both images have the same height */
+		margin: 0 auto; /* Center the images */
+		display: block; /* Block display for better alignment */
+		object-fit: cover; /* Crop images to fit the container */
+	}
+}
+
+
+
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	font-family: "Roboto";
+	font-weight: 400;
+	font-size: 14px;
+	color: var(--dark);
+}
+
+body {
+	background-image: url("media/heart background.svg");
+	background-size: 30px 30px;
+}
+
+#panel {
+	position: relative;
+	height: auto;
+}
+
+#one-panel,
+#two-panel {
+	display: inline-block;
+	width: 50%;
+	height: auto;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	vertical-align: top;
+}
+
+#one-panel {
+	padding-right: 20px;
+	padding-left: calc(50vw - 600px);
+}
+
+#two-panel {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	padding-left: 20px;
+	text-align: right;
+	padding-right: calc(50vw - 600px);
+}
+
+#panel-container-left {
+	width: auto;
+	height: auto;
+	color: inherit;
+	padding-left: 40px;
+}
+
+#panel-container-right {
+	width: auto;
+	height: auto;
+	color: inherit;
+	padding-right: 40px;
+}
+
+#vertical-divider {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: calc(50vw - 0.5px);
+	width: 1px;
+	background-color: var(--bright);
+}
+#heart {
+	position: absolute;
+	width: 10vw; /* Responsive size based on viewport width */
+	height: 10vw; /* Maintain aspect ratio */
+	animation: heartbeat 1s infinite ease-in-out; /* Heartbeat animation */
+	left: calc(53% - 7.5vw); /* Centers the heart horizontally */
+	top: calc(50% - 7.5vw); /* Centers the heart vertically */
+}
+
+/* Keyframes for the heartbeat animation */
+@keyframes heartbeat {
+	0%, 100% {
+		transform: scale(1); /* Normal size */
+	}
+	25% {
+		transform: scale(1.2); /* Slightly larger */
+	}
+	50% {
+		transform: scale(1.4); /* Peak size of the heartbeat */
+	}
+	75% {
+		transform: scale(1.2); /* Shrinking back */
+	}
+}
+
+
+
+
+.divider {
+	width: 100%;
+	height: 1px;
+	margin: 40px 0 40px 0;
+	background-color: var(--bright);
+}
+
+.invisible-divider {
+	width: 100%;
+	height: 40px;
+}
+
+#main {
+	position: relative;
+	width: 100%;
+	height: auto;
+}
+
+::-moz-selection {
+	color: var(--dark);
+	background: var(--bright);
+}
+
+::selection {
+	color: var(--dark);
+	background: var(--bright);
+}
+
+/* -------- TOP -------- */
+
+#top {
+	position: relative;
+	width: 100%;
+	height: auto;
+	padding: 40px;
+	border-bottom: solid 1px var(--bright);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap; /* Ensures proper stacking on smaller screens */
+}
+
+#heartbeats {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	background-color: var(--bright);
+	z-index: 0;
+	width: 100%;
+}
+
+#heartbeats-left,
+#page-title {
+	position: relative;
+	font-size: 48px;
+	font-weight: 700;
+	color: var(--bright);
+	text-shadow:
+		-1px -1px 0 var(--white),  
+		1px -1px 0 var(--white),
+		-1px 1px 0 var(--white),
+		1px 1px 0 var(--white);
+	z-index: 1;
+	margin: 10px 0; /* Adds spacing between elements for stacking */
+}
+
+#heartbeats-left {
+	text-align: right; /* Adjust alignment */
+	order: 2; /* Display after #page-title */
+}
+
+#page-title {
+	text-align: left; /* Adjust alignment */
+	order: 1; /* Display before #heartbeats-left */
+}
+
+@media all and (max-width: 900px) {
+	#heartbeats-left,
+	#page-title {
+		font-size: 36px; /* Reduce font size for medium screens */
+		text-align: center; /* Center-align elements */
+	}
+
+	#top {
+		flex-direction: column; /* Stack elements vertically */
+		align-items: center; /* Center-align stacked elements */
+	}
+}
+
+@media all and (max-width: 480px) {
+	#heartbeats-left,
+	#page-title {
+		font-size: 24px; /* Further reduce font size for smaller screens */
+	}
+
+	#heartbeats-left,
+	#page-title {
+		text-align: center; /* Ensure proper centering on mobile */
+	}
+}
+
+
+
+/* -------- DAT -------- */
+
+.location,
+.name,
+.time {
+	color: inherit;
+	display: block;
+	margin-bottom: 10px;
+}
+
+.location {
+	font-size: 24px;
+	font-weight: 700;
+	margin: 0;
+}
+
+.name {
+	font-size: 28px;
+	font-weight: 700;
+}
+
+.main-data {
+	color: inherit;
+	font-size: 24px;
+}
+
+.tag-holder {
+	display: inline-block;
+	padding: 10px 12px; /* Increase padding for larger size */
+	margin-right: 8px; /* Slightly more space between tags */
+	margin-bottom: 6px; /* Adjust bottom margin */
+	border-radius: 4px; /* Slightly rounder corners */
+	border: solid 1px;
+	border-color: inherit;
+	color: inherit;
+	font-size: 16px; /* Optional: Increase font size */
+}
+
+.tag-content {
+	color: inherit;
+}
+
+/* -------- BOT -------- */
+
+#bottom {
+	width: 100%;
+	height: auto;
+	padding: 40px;
+	border-top: solid 1px var(--bright);
+	text-align: center; /* Center-align content for all screens */
+}
+
+#time-till-meet,
+#time-separate {
+	font-weight: 700;
+	font-size: 24px;
+	color: var(--bright);
+	margin-bottom: 20px; /* Add spacing between lines */
+}
+
+#date-left,
+#date-right {
+	display: block; /* Stack elements vertically */
+	text-align: center;
+	margin: 10px 0; /* Add spacing around elements */
+}
+
+@media all and (max-width: 900px) {
+	#heartbeats-left,
+	#page-title {
+		font-size: 24px;
+		text-align: center; /* Ensure centered alignment for medium screens */
+	}
+
+	#time-till-meet,
+	#time-separate {
+		font-size: 18px;
+		margin-bottom: 15px; /* Adjust spacing for medium screens */
+	}
+}
+
+@media all and (max-width: 480px) {
+	#heartbeats-left,
+	#page-title {
+		font-size: 18px;
+		text-align: center;
+	}
+
+	#time-till-meet,
+	#time-separate {
+		font-size: 16px;
+		margin-bottom: 10px; /* Adjust spacing for small screens */
+	}
+}
