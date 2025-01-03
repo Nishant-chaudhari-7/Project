@@ -1,4 +1,4 @@
-//-------SETUP
+// -------SETUP
 
 // Define the values for firstPerson, firstLocation, secondPerson, and secondLocation
 var firstPerson = 'Saloni🤍'; // Replace with the actual name
@@ -14,16 +14,18 @@ var oneLoc = new Location(firstPerson, firstLocation, 'one'); //first person's n
 var twoLoc = new Location(secondPerson, secondLocation, 'two'); //first person's name as string, location (City, Country) as string
 
 //last day of contact (year, month, day)
-var timeLeaveStamp = new Date(2019, 4, 16);
+// Make sure months are 0-indexed (April = 3, not 4)
+var timeLeaveStamp = new Date(2019, 3, 16); // April is 3, not 4
 
 //first day of renewed contact (year, month, day)
-var timeMeetStamp = new Date(2025, 4, 16);
+// Make sure months are 0-indexed (May = 4, not 5)
+var timeMeetStamp = new Date(2025, 3, 16); // April is 3, not 4
 
 //earliest and latest time appropriate for call
 var earliestCall = 8;
 var latestCall = 2;
 
-//-------LOGIC
+// -------LOGIC
 
 //location data
 oneLoc.loadData();
@@ -75,7 +77,8 @@ var beats = document.getElementById('heartbeats-left');
 
 setInterval(function() {
 	today = new Date();
-	heartbeats = Math.floor(dateDiff('s', today, timeMeetStamp) * heartRate);
+	// Calculate seconds remaining until 16th April 2025
+	heartbeats = Math.floor(dateDiff('s', today, timeMeetStamp));
 	if (heartbeats < 1) heartbeats = 0;
 	beats.innerHTML = heartbeats + '<br> heartbeats <br> away';
-}, 500);
+}, 500); // Adjusted to work as expected with your existing logic
