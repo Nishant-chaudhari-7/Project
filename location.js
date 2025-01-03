@@ -212,7 +212,7 @@ function loadWeather(loc, callback) {
 //get time data from geonames
 function loadTime(lon, lat, callback) {
 	var xhr = new XMLHttpRequest();
-	var link = ' http://api.geonames.org/timezoneJSON?lat=' + lat + '&lng=' + lon + '&username=' + timeKey;
+	var link = ' https://api.geonames.org/timezoneJSON?lat=' + lat + '&lng=' + lon + '&username=' + timeKey;
 
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState == XMLHttpRequest.DONE) {
