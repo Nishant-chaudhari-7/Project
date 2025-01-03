@@ -162,7 +162,7 @@ xhr.send(data);
 //get weather data from openweathermap
 function loadWeather(loc, callback) {
 	var xhr = new XMLHttpRequest();
-	var link = 'http://api.openweathermap.org/data/2.5/weather?q=' + loc + '&APPID=' + weatherKey;
+	var link = 'https://api.openweathermap.org/data/2.5/weather?q=' + loc + '&APPID=' + weatherKey;
 
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState == XMLHttpRequest.DONE) {
